@@ -1,2 +1,2 @@
-# Persian-Poetry-Rhythm-Detection
+# Persian-Poem-Rhythm-Detection
 Persian Poetry Rhythm Detection using GPT2-FA
