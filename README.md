@@ -113,20 +113,19 @@ Poems without a label among the 10 target meters are dropped.
 Each verse is cleaned of digits, Latin letters, punctuation and diacritics, then split at the `/` separator into two hemistichs. Both hemistichs inherit the verse's meter label.
 
 ### 🎼 The 10 meters (classes)
-
-| Code | Meter (pattern) | Name |
-|:-:|---|---|
-| 0 | فاعلاتن فاعلاتن فاعلاتن فاعلن | Ramal musamman mahzuf |
-| 1 | فاعلاتن فاعلاتن فاعلن | Ramal musaddas mahzuf (*masnavi* meter) |
-| 2 | فعلاتن فعلاتن فعلاتن فعلن | Ramal musamman makhbun mahzuf |
-| 3 | فعلاتن مفاعلن فعلن | Khafif musaddas makhbun |
-| 4 | فعولن فعولن فعولن فعل | Mutaqarib musamman mahzuf (*Shahnameh* meter) |
-| 5 | مفاعلن فعلاتن مفاعلن فعلن | Mujtass musamman makhbun mahzuf |
-| 6 | مفاعیلن مفاعیلن فعولن | Hazaj musaddas mahzuf (*dobeyti* meter) |
-| 7 | مفاعیلن مفاعیلن مفاعیلن مفاعیلن | Hazaj musamman salim |
-| 8 | مفعول فاعلات مفاعیل فاعلن | Mudari' musamman akhrab makfuf mahzuf |
-| 9 | مفعول مفاعیل مفاعیل فعولن | Hazaj musamman akhrab makfuf mahzuf |
-
+| Rhythm (وزن عروضی) | Code | Number of verses |
+|---|:-:|--:|
+| فاعلاتن فاعلاتن فاعلاتن فاعلن (رمل مثمن محذوف) | 0 | 13,102 |
+| فاعلاتن فاعلاتن فاعلن (رمل مسدس محذوف یا وزن مثنوی) | 1 | 20,128 |
+| فعلاتن فعلاتن فعلاتن فعلن (رمل مثمن مخبون محذوف) | 2 | 10,228 |
+| فعلاتن مفاعلن فعلن (خفیف مسدس مخبون) | 3 | 11,502 |
+| فعولن فعولن فعولن فعل (متقارب مثمن محذوف یا وزن شاهنامه) | 4 | 53,604 |
+| مفاعلن فعلاتن مفاعلن فعلن (مجتث مثمن مخبون محذوف) | 5 | 11,010 |
+| مفاعیلن مفاعیلن فعولن (هزج مسدس محذوف یا وزن دوبیتی) | 6 | 10,486 |
+| مفاعیلن مفاعیلن مفاعیلن مفاعیلن (هزج مثمن سالم) | 7 | 9,950 |
+| مفعول فاعلات مفاعیل فاعلن (مضارع مثمن اخرب مکفوف محذوف) | 8 | 10,231 |
+| مفعول مفاعیل مفاعیل فعولن (هزج مثمن اخرب مکفوف محذوف) | 9 | 6,058 |
+| **Total** | | **156,299** |
 Class sizes were capped at about 10,000 verses (before the hemistich split), with a few exceptions, to keep the dataset balanced.
 
 <div align="center">
