@@ -228,7 +228,7 @@ The *Shahnameh* meter (4) and the *Hazaj musamman salim* meter (7) are recognize
 
 <div align="center">
 
-<img src="./assets/confusion_matrix.png" alt="Confusion matrix on the test set" width="60%"/>
+<img src="https://github.com/kasraSMD/Persian-Poetry-Rhythm-Detection/blob/main/Persian-Poetry-Rhythm-Detection/assets/confusion matrix.svg" alt="Confusion matrix on the test set" width="60%"/>
 
 </div>
 
