@@ -129,7 +129,7 @@ Each verse is cleaned of digits, Latin letters, punctuation and diacritics, then
 
 <div align="center">
 
-<img src="https://github.com/kasraSMD/Persian-Poetry-Rhythm-Detection/blob/main/Persian-Poetry-Rhythm-Detection/assets/class_distribution_raw.png" alt="Distribution of verses per meter code before balancing" width="55%"/>
+<img src="https://github.com/kasraSMD/Persian-Poetry-Rhythm-Detection/blob/main/Persian-Poetry-Rhythm-Detection/assets/class_distribution_raw.svg" alt="Distribution of verses per meter code before balancing" width="55%"/>
 
 *Distribution of verses per meter code (before balancing)*
 
