@@ -143,6 +143,29 @@ Counts are verses (*bayt*) after text cleaning and duplicate removal, before bal
 
 *Distribution of verses per meter code (after balancing)*
 
+After balancing, each verse is split into two hemistichs, which gives the final 200,000 samples used for training, validation and testing:
+
+| Rhythm (وزن عروضی) | Code | Number of hemistichs |
+|---|:-:|--:|
+| فاعلاتن فاعلاتن فاعلاتن فاعلن (رمل مثمن محذوف) | 0 | 20,000 |
+| فاعلاتن فاعلاتن فاعلن (رمل مسدس محذوف یا وزن مثنوی) | 1 | 22,000 |
+| فعلاتن فعلاتن فعلاتن فعلن (رمل مثمن مخبون محذوف) | 2 | 20,000 |
+| فعلاتن مفاعلن فعلن (خفیف مسدس مخبون) | 3 | 20,000 |
+| فعولن فعولن فعولن فعل (متقارب مثمن محذوف یا وزن شاهنامه) | 4 | 25,984 |
+| مفاعلن فعلاتن مفاعلن فعلن (مجتث مثمن مخبون محذوف) | 5 | 20,000 |
+| مفاعیلن مفاعیلن فعولن (هزج مسدس محذوف یا وزن دوبیتی) | 6 | 20,000 |
+| مفاعیلن مفاعیلن مفاعیلن مفاعیلن (هزج مثمن سالم) | 7 | 19,900 |
+| مفعول فاعلات مفاعیل فاعلن (مضارع مثمن اخرب مکفوف محذوف) | 8 | 20,000 |
+| مفعول مفاعیل مفاعیل فعولن (هزج مثمن اخرب مکفوف محذوف) | 9 | 12,116 |
+| **Total** | | **200,000** |
+
+<div align="center">
+
+<img src="./assets/class_distribution_hemistichs.svg" alt="Distribution of hemistichs per meter code" width="55%"/>
+
+*Distribution of hemistichs per meter code*
+
+
 </div>
 
 > 📌 **Data availability.** The raw poem `.txt` files are excluded from the repository (see `.gitignore`). The prepared CSV files for each stage are included, and the full dataset is available on request.
