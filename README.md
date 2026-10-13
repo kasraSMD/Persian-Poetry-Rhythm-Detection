@@ -126,6 +126,7 @@ Each verse is cleaned of digits, Latin letters, punctuation and diacritics, then
 | مفعول فاعلات مفاعیل فاعلن (مضارع مثمن اخرب مکفوف محذوف) | 8 | 10,231 |
 | مفعول مفاعیل مفاعیل فعولن (هزج مثمن اخرب مکفوف محذوف) | 9 | 6,058 |
 | **Total** | | **156,299** |
+
 Class sizes were capped at about 10,000 verses (before the hemistich split), with a few exceptions, to keep the dataset balanced.
 
 <div align="center">
