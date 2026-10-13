@@ -143,6 +143,10 @@ Counts are verses (*bayt*) after text cleaning and duplicate removal, before bal
 
 *Distribution of verses per meter code (after balancing)*
 
+</div>
+
+</div>
+
 After balancing, each verse is split into two hemistichs, which gives the final 200,000 samples used for training, validation and testing:
 
 | Rhythm (وزن عروضی) | Code | Number of hemistichs |
@@ -161,10 +165,9 @@ After balancing, each verse is split into two hemistichs, which gives the final 
 
 <div align="center">
 
-<img src="./assets/class_distribution_hemistichs.svg" alt="Distribution of hemistichs per meter code" width="55%"/>
+<img src="https://github.com/kasraSMD/Persian-Poetry-Rhythm-Detection/blob/main/Persian-Poetry-Rhythm-Detection/assets/verse.svg" alt="Distribution of hemistichs per meter code" width="55%"/>
 
 *Distribution of hemistichs per meter code*
-
 
 </div>
 
