@@ -273,47 +273,88 @@ python 2_Crawl_Rhythms.py          # writes 2_output_RhythmDataFrames/<poet>/<po
 
 ### 4. Predict the meter of your own verses
 
-Open `3_VerseModelTraining/Rhythm_Predictor.ipynb`. You need `Rhythm_Encoder.pkl` (included) and the trained weights `verse_best_model.pt` (about 472 MB, not stored in the repo).
+**To access the trained model, follow this link:** [Download `verse_best_model.pt`](https://drive.google.com/uc?id=1-PjHXhVjhTc-hDr1kLrfkw7VeWE-lmgC) (about 472 MB). You can also fetch it from the command line:
+
+```bash
+cd 3_VerseModelTraining
+pip install gdown
+gdown 1-PjHXhVjhTc-hDr1kLrfkw7VeWE-lmgC -O verse_best_model.pt
+```
+
+Put `verse_best_model.pt` next to `Rhythm_Encoder.pkl` (already in the repo), then open `3_VerseModelTraining/Rhythm_Predictor.ipynb`, or run this code from the same folder. Enter your own hemistichs in `verse_texts`:
 
 ```python
-import pickle, torch
+import pickle
+import pandas as pd
+import torch
+from torch.utils.data import Dataset, DataLoader
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-with open("Rhythm_Encoder.pkl", "rb") as f:
-    encoder = pickle.load(f)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# 1. Label encoder: maps class codes (0-9) back to meter names
+with open("Rhythm_Encoder.pkl", "rb") as f:
+    rhythm_encoder = pickle.load(f)
+
+# 2. Tokenizer and fine-tuned GPT2-FA model
 tokenizer = AutoTokenizer.from_pretrained("HooshvareLab/gpt2-fa")
 tokenizer.add_special_tokens({"pad_token": "<pad>"})
 
 model = AutoModelForSequenceClassification.from_pretrained(
-    "HooshvareLab/gpt2-fa", num_labels=len(encoder.classes_)
+    "HooshvareLab/gpt2-fa", num_labels=len(rhythm_encoder.classes_)
 )
 model.config.pad_token_id = tokenizer.pad_token_id
-model.load_state_dict(torch.load("verse_best_model.pt", weights_only=True))
+model.load_state_dict(torch.load("verse_best_model.pt", map_location=device, weights_only=True))
+model.to(device)
 model.eval()
 
-verse = "چو دیدم روی تو مردانه گشتم"          # a single hemistich
-enc = tokenizer(verse, return_tensors="pt", truncation=True,
-                max_length=20, padding="max_length")
 
-with torch.no_grad():
-    pred = model(**enc).logits.argmax(dim=1).item()
+# 3. Dataset that tokenizes each hemistich (max 20 tokens)
+class PersianPoemDataset(Dataset):
+    def __init__(self, texts, tokenizer):
+        self.texts = texts
+        self.tokenizer = tokenizer
 
-print(encoder.inverse_transform([pred])[0])
-# مفاعیلن مفاعیلن فعولن (هزج مسدس محذوف یا وزن دوبیتی)
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, item):
+        enc = self.tokenizer(self.texts[item], return_tensors="pt", truncation=True,
+                             max_length=20, padding="max_length")
+        return {"input_ids": enc["input_ids"].squeeze(0),
+                "attention_mask": enc["attention_mask"].squeeze(0)}
+
+
+# 4. Your verses: one hemistich (mesra') per item
+verse_texts = [
+    "بیا تا گل برافشانیم و می در ساغر اندازیم",
+    "نذر کردم گر از این غم به درآیم روزی",
+    "چو دیدم روی تو مردانه گشتم",
+]
+loader = DataLoader(PersianPoemDataset(verse_texts, tokenizer), batch_size=1)
+
+
+# 5. Predict
+def prediction(model, data_loader):
+    all_preds = []
+    with torch.no_grad():
+        for batch in data_loader:
+            logits = model(batch["input_ids"].to(device),
+                           attention_mask=batch["attention_mask"].to(device)).logits
+            all_preds.extend(torch.argmax(logits, dim=1).cpu().numpy())
+    return all_preds
+
+
+preds = prediction(model, loader)
+results_df = pd.DataFrame({
+    "Verse": verse_texts,
+    "Rhythm code": preds,
+    "Predicted Rhythm Label": rhythm_encoder.inverse_transform(preds),
+})
+print(results_df)
 ```
 
 In the demo notebook, the model classifies all **10 of 10** sample hemistichs correctly (three different meters).
-
----
-
-## ⚠️ Notes and Limitations
-
-- **Scope.** The model predicts only the 10 most frequent meters. Poems in other meters are not covered.
-- **Input length.** Inputs are truncated to 20 tokens, which suits a single hemistich.
-- **Split strategy.** The train, validation and test sets are split at the hemistich level, so the two hemistichs of one verse can land in different sets. A split by poem or by poet would give a stricter estimate of generalization.
-- **Label source.** Meter labels come from matching poems against Ganjoor by book name and title. Poems that do not match are dropped.
-- **Overfitting.** Training accuracy reaches about 99.7 % while validation accuracy plateaus near 90 %.
 
 ---
 
