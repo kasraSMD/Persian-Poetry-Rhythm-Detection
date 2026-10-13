@@ -126,12 +126,21 @@ Each verse is cleaned of digits, Latin letters, punctuation and diacritics, then
 | مفعول فاعلات مفاعیل فاعلن (مضارع مثمن اخرب مکفوف محذوف) | 8 | 10,231 |
 | مفعول مفاعیل مفاعیل فعولن (هزج مثمن اخرب مکفوف محذوف) | 9 | 6,058 |
 | **Total** | | **156,299** |
+<div align="center">
 
-Class sizes were capped at about 10,000 verses (before the hemistich split), with a few exceptions, to keep the dataset balanced.
+<img src="./assets/class_distribution_raw.png" alt="Distribution of verses per meter code before balancing" width="55%"/>
+
+*Distribution of verses per meter code (before balancing)*
+
+</div>
+
+Counts are verses (*bayt*) after text cleaning and duplicate removal, before balancing. For training, the larger classes were sampled down to about 10,000 verses each, which gives the 100,000-verse dataset described above.
 
 <div align="center">
 
 <img src="./assets/class_distribution_balanced.png" alt="Class distribution after balancing" width="55%"/>
+
+*Distribution after balancing*
 
 </div>
 
