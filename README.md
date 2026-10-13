@@ -126,6 +126,7 @@ Each verse is cleaned of digits, Latin letters, punctuation and diacritics, then
 | مفعول فاعلات مفاعیل فاعلن (مضارع مثمن اخرب مکفوف محذوف) | 8 | 10,231 |
 | مفعول مفاعیل مفاعیل فعولن (هزج مثمن اخرب مکفوف محذوف) | 9 | 6,058 |
 | **Total** | | **156,299** |
+
 <div align="center">
 
 <img src="https://github.com/kasraSMD/Persian-Poetry-Rhythm-Detection/blob/main/Persian-Poetry-Rhythm-Detection/assets/class_distribution_raw.png" alt="Distribution of verses per meter code before balancing" width="55%"/>
