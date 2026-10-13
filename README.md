@@ -1,7 +1,3 @@
-# Persian-Poem-Rhythm-Detection
-Persian Poetry Rhythm Detection using GPT2-FA
-
-
 <div align="center">
 
 # 🪶 Persian Poetry Rhythm Detection
@@ -15,7 +11,7 @@ Persian Poetry Rhythm Detection using GPT2-FA
 ![Accuracy](https://img.shields.io/badge/Test_Accuracy-90.39%25-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-*Bachelor's project*
+*Bachelor's Project at the [University of Isfahan](https://comp.ui.ac.ir/)*
 
 </div>
 
