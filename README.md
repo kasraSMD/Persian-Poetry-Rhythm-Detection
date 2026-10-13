@@ -11,7 +11,7 @@
 ![Accuracy](https://img.shields.io/badge/Test_Accuracy-90.39%25-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-*Bachelor's Project at the [University of Isfahan](https://comp.ui.ac.ir/)*
+*Bachelor's Project at [University of Isfahan](https://comp.ui.ac.ir/)*
 
 </div>
 
