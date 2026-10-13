@@ -139,9 +139,9 @@ Counts are verses (*bayt*) after text cleaning and duplicate removal, before bal
 
 <div align="center">
 
-<img src="./assets/class_distribution_balanced.png" alt="Class distribution after balancing" width="55%"/>
+<img src="https://github.com/kasraSMD/Persian-Poetry-Rhythm-Detection/blob/main/Persian-Poetry-Rhythm-Detection/assets/class_distribution_raw.png" alt="Distribution of verses per meter code after balancing" width="55%"/>
 
-*Distribution after balancing*
+*Distribution of verses per meter code (after balancing)*
 
 </div>
 
