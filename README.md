@@ -188,7 +188,7 @@ After balancing, each verse is split into two hemistichs, which gives the final 
 | Batch size | 32 |
 | Epochs | Up to 50, with early stopping (patience 4) |
 | Model selection | Best validation accuracy |
-| Data split | 90 % / 10 % train / test, then 10 % of train held out for validation |
+| Data split | Train / Validation / Test | 162,000 / 18,000 / 20,000 |
 | Hardware | GPU (Google Colab), about 4 min 20 s per epoch |
 
 Training stopped after **41 epochs**. The best checkpoint reached **90.57 % validation accuracy** (epoch 36).
