@@ -273,7 +273,7 @@ python 2_Crawl_Rhythms.py          # writes 2_output_RhythmDataFrames/<poet>/<po
 
 ### 4. Predict the meter of your own verses
 
-**To access the trained model, follow this link:** [Download `verse_best_model.pt`]([https://drive.google.com/uc?id=1-PjHXhVjhTc-hDr1kLrfkw7VeWE-lmgC) (about 472 MB). You can also fetch it from the command line:
+**To access the trained model, follow this link:** [Download `verse_best_model.pt`](https://drive.google.com/uc?id=1-PjHXhVjhTc-hDr1kLrfkw7VeWE-lmgC) (about 472 MB). You can also fetch it from the command line:
 
 ```bash
 cd 3_VerseModelTraining
